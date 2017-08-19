@@ -12,7 +12,24 @@
 		0E37DDB41F4786660089288C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E37DDB21F4786660089288C /* Main.storyboard */; };
 		0E37DDB61F4786660089288C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E37DDB51F4786660089288C /* Assets.xcassets */; };
 		0E37DDB91F4786660089288C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E37DDB71F4786660089288C /* LaunchScreen.storyboard */; };
+		0E37DDC11F4786F70089288C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 0E37DDC01F4786F70089288C /* Cartfile */; };
+		0E37DDC51F4788DC0089288C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E37DDC31F4788360089288C /* AFNetworking.framework */; };
+		0E37DDC61F4788DD0089288C /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E37DDC31F4788360089288C /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E37DDC71F4788DD0089288C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0E37DDC61F4788DD0089288C /* AFNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E37DDAB1F4786660089288C /* Photo Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +39,9 @@
 		0E37DDB51F4786660089288C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E37DDB81F4786660089288C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E37DDBA1F4786660089288C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E37DDC01F4786F70089288C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		0E37DDC21F4787950089288C /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
+		0E37DDC31F4788360089288C /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E37DDC51F4788DC0089288C /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +59,9 @@
 		0E37DDA21F4786660089288C = {
 			isa = PBXGroup;
 			children = (
+				0E37DDC21F4787950089288C /* bridge.h */,
+				0E37DDC31F4788360089288C /* AFNetworking.framework */,
+				0E37DDC01F4786F70089288C /* Cartfile */,
 				0E37DDAD1F4786660089288C /* Photo Search */,
 				0E37DDAC1F4786660089288C /* Products */,
 			);
@@ -74,6 +98,7 @@
 				0E37DDA71F4786660089288C /* Sources */,
 				0E37DDA81F4786660089288C /* Frameworks */,
 				0E37DDA91F4786660089288C /* Resources */,
+				0E37DDC71F4788DD0089288C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +151,7 @@
 			files = (
 				0E37DDB91F4786660089288C /* LaunchScreen.storyboard in Resources */,
 				0E37DDB61F4786660089288C /* Assets.xcassets in Resources */,
+				0E37DDC11F4786F70089288C /* Cartfile in Resources */,
 				0E37DDB41F4786660089288C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +215,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -210,6 +237,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -240,6 +268,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -253,6 +282,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -263,11 +293,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V9843VC6X4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Photo Search/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Greene.Photo-Search";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -276,11 +312,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V9843VC6X4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Photo Search/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Greene.Photo-Search";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -304,6 +346,7 @@
 				0E37DDBF1F4786660089288C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
