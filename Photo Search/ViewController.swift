@@ -21,7 +21,7 @@ class ViewController: UIViewController {
                                              "api_key": "8d1008621fa7378a2934205a2ba628dc",
                                              "format": "json",
                                              "nojsoncallback": 1,
-                                             "text": "game of thrones",
+                                             "text": "dogs",
                                              "extras": "url_m",
                                              "per_page": 5]
         
