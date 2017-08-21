@@ -22,15 +22,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLA-HX-TvK">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="505"/>
                             </scrollView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="WM6-8t-ZJi">
+                                <rect key="frame" x="0.0" y="19" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OUc-1a-bHr"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nLA-HX-TvK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8ly-g9-ImC"/>
+                            <constraint firstItem="nLA-HX-TvK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="63" id="CdZ-Pg-xYR"/>
+                            <constraint firstItem="nLA-HX-TvK" firstAttribute="trailing" secondItem="WM6-8t-ZJi" secondAttribute="trailing" id="IHg-qv-qzb"/>
                             <constraint firstAttribute="trailing" secondItem="nLA-HX-TvK" secondAttribute="trailing" id="JSO-ks-4O9"/>
+                            <constraint firstItem="nLA-HX-TvK" firstAttribute="top" secondItem="WM6-8t-ZJi" secondAttribute="bottom" id="Rth-Vj-1FH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nLA-HX-TvK" secondAttribute="bottom" id="WGr-Q5-vab"/>
-                            <constraint firstItem="nLA-HX-TvK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nNd-ON-YXd"/>
+                            <constraint firstItem="nLA-HX-TvK" firstAttribute="leading" secondItem="WM6-8t-ZJi" secondAttribute="leading" id="uDz-Qn-JlZ"/>
                         </constraints>
                     </view>
                     <connections>

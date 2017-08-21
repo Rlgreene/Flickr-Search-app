@@ -7,21 +7,22 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController {
+                                        //insert UISearchBarDelegate to define the optional methods thatll be used to make a search bar functional
+class ViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchFlickrBy("dogs")
+    }
+    func searchFlickrBy(_ searchString: String) {
         let manager = AFHTTPSessionManager()
         let searchParameters:[String:Any] = ["method": "flickr.photos.search",
                                              "api_key": "8d1008621fa7378a2934205a2ba628dc",
                                              "format": "json",
                                              "nojsoncallback": 1,
-                                             "text": "dogs",
+                                             "text": searchString,
                                              "extras": "url_m",
                                              "per_page": 5]
         
@@ -50,6 +51,17 @@ class ViewController: UIViewController {
     print("Error: " + error.localizedDescription)
     }
         // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    //this function calls the search bar delegate
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        for subview in self.scrollView.subviews {
+            subview.removeFromSuperview()
+        }
+        searchBar.resignFirstResponder() //this will make the keyboard disappear when tapping the 'Search' button
+        if let searchText = searchBar.text {
+            searchFlickrBy(searchText)
+        }
     }
 
     override func didReceiveMemoryWarning() {
