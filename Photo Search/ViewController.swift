@@ -14,7 +14,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchFlickrBy("dogs")
+        searchFlickrBy(" ")
     }
     func searchFlickrBy(_ searchString: String) {
         let manager = AFHTTPSessionManager()
@@ -22,7 +22,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
                                              "api_key": "8d1008621fa7378a2934205a2ba628dc",
                                              "format": "json",
                                              "nojsoncallback": 1,
-                                             "text": searchString,
+                                             "text": searchString,//so that any typing will overwrite the previous
                                              "extras": "url_m",
                                              "per_page": 5]
         
@@ -34,7 +34,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
                             print("Response: " + (responseObject as AnyObject).description)
                             if let photos = (responseObject as AnyObject)["photos"] as? [String: AnyObject] {
                                 if let photoArray = photos["photo"] as? [[String:AnyObject]] {
-                                    self.scrollView.contentSize = CGSize(width: 320, height: 320 * CGFloat(photoArray.count))
+                                    let imageWidth = self.view.frame.width //will be used to demonstrate all images' native sizes
+                                    self.scrollView.contentSize = CGSize(width: imageWidth, height: imageWidth * CGFloat(photoArray.count)) //makes the images more dynamic and able to fit all screen sizes
                                     for (i,photoDictionary) in photoArray.enumerated() {
                                         if let imageURLString = photoDictionary["url_m"] as? String {
                                             let imageView = UIImageView(frame: CGRect(x: 0, y: 320*CGFloat(i), width: 320, height: 320))
@@ -60,7 +61,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
         searchBar.resignFirstResponder() //this will make the keyboard disappear when tapping the 'Search' button
         if let searchText = searchBar.text {
-            searchFlickrBy(searchText)
+            searchFlickrBy(searchText)//tells the app to use the search func for whatever is typed
         }
     }
 
